@@ -2,7 +2,25 @@
 $background-gradient: linear-gradient(45deg, rgba(2, 0, 36, 0.7) 0%, rgba(117, 46, 114, 0.7) 0%, rgba(196, 60, 110, 1) 100%)
 $background-rgba: rgb(2, 0, 36)
 
+.person-info__avatar
+  width: 130px
+  height: 130px
+  border-radius: 100%
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  position: relative
 
+  .status
+    position: absolute
+    width: 16px
+    height: 16px
+    border-radius: 100%
+    right: 20px
+    bottom: 5px
+
+  .online
+    background-color: #29C851
 
 .container
   background: $background-rgba
@@ -47,30 +65,42 @@ $background-rgba: rgb(2, 0, 36)
 
 
   .user-profile
-    max-width: 640px
+    display: flex
+    flex-direction: column
+    max-width: 1200px
     min-height: 450px
     width: 100%
     border-radius: 10px
     overflow: hidden
-    background-color: white
 
 
     .user-profile__header
-      background-color: rgba(0,0,0,0.5)
       background-image: url("http://www.acupofmusicplease.com/wp-content/uploads/2018/04/kelly-sikkema-216021-unsplash-1024x678.jpg")
       background-position: center
       background-repeat: no-repeat
       background-size: cover
       min-height: 180px
+      filter: brightness(80%)
       box-sizing: border-box
       padding: 15px 25px
+
+
+      &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background-color: rgba(0,0,0,0.2)
+        z-index: -1
 
       .header__nav
         display: flex
         justify-content: space-between
 
-        & img
-          opacity: 0.75
+        //& img
+        //  opacity: 0.75
 
       .nav__events-container
         .events-container__bell
@@ -86,49 +116,47 @@ $background-rgba: rgb(2, 0, 36)
             right: 4px
             top: 2px
 
-
     .user-profile__content
       display: flex
 
       .content__person-container
         min-width: 235px
+        flex: 1
         background: rgb(193,60,107)
         background: linear-gradient(225deg, rgba(193,60,107,1) 0%, rgba(111,45,117,1) 100%)
-
+        color: white
 
         .container__person-info
           display: flex
+          flex: 1
           flex-direction: column
           align-items: center
           margin-top: -65px
 
-          .person-info__avatar
-            width: 130px
-            height: 130px
-            border-radius: 100%
-            background-repeat: no-repeat
-            background-position: center
-            background-size: cover
-            position: relative
+          .person-info__full-name
+            font-size: 16px
+            font-weight: 600
+            word-wrap: break-word
+            text-align: center
 
-            .status
-              position: absolute
-              width: 16px
-              height: 16px
-              border-radius: 100%
-              right: 20px
-              bottom: 5px
+          .person-info__stat
+            margin-top: auto
+            display: flex
 
-            .online
-              background-color: #29C851
-
-
-
-
+            .stat__item
+              box-sizing: border-box
+              padding:
+              border-top: 1px solid white
+              display: flex
+              align-items: center
+              flex-direction: column
+              flex: 1
 
       .content__about
+        flex: 2
         box-sizing: border-box
         padding: 25px 30px
+        background-color: white
 
         .about__title
           text-transform: uppercase
@@ -138,10 +166,4 @@ $background-rgba: rgb(2, 0, 36)
         .about__content
           color: black
           margin-top: 15px
-
-
-
-
-
-
 
