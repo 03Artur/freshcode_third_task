@@ -1,7 +1,5 @@
-
-$background-gradient: linear-gradient(45deg, rgba(2, 0, 36, 0.7) 0%, rgba(117, 46, 114, 0.7) 0%, rgba(196, 60, 110, 1) 100%)
+$background-gradient: linear-gradient(45deg, rgba(2, 0, 36, 0.7) 0%, rgba(117, 46, 114, 0.7) 0%, rgba(196, 60, 110, 0.7) 100%)
 $background-rgba: rgb(2, 0, 36)
-
 
 
 .container
@@ -67,9 +65,9 @@ $background-rgba: rgb(2, 0, 36)
     width: 100%
     border-radius: 10px
     overflow: hidden
-    -webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,0.5)
-    -moz-box-shadow: 0 0 20px 0 rgba(0,0,0,0.5)
-    box-shadow: 0 0 20px 0 rgba(0,0,0,0.5)
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5)
+    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5)
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5)
     margin: 20px
 
     .user-profile__banner
@@ -83,7 +81,6 @@ $background-rgba: rgb(2, 0, 36)
 
       @media screen and (max-width: 540px)
         display: none
-
 
 
       .banner_background
@@ -104,8 +101,7 @@ $background-rgba: rgb(2, 0, 36)
           left: 0
           right: 0
           bottom: 0
-          background-color: rgba(0,0,0,0.3)
-
+          background-color: rgba(0, 0, 0, 0.3)
 
 
     .user-profile__button
@@ -118,18 +114,18 @@ $background-rgba: rgb(2, 0, 36)
       display: flex
       align-items: center
       justify-content: center
-      background: rgb(193,60,107)
-      background: linear-gradient(225deg, rgba(193,60,107,1) 0%, rgba(111,45,117,1) 100%)
+      background: rgb(193, 60, 107)
+      background: linear-gradient(225deg, rgba(193, 60, 107, 1) 0%, rgba(111, 45, 117, 1) 100%)
       color: white
       font-size: 12px
       font-weight: 600
       z-index: 1
       cursor: pointer
 
-      &+.user-profile__button
+      & + .user-profile__button
         margin-left: 10px
 
-      &>img
+      & > img
         height: 16px
         width: 16px
         margin-right: 3px
@@ -145,13 +141,20 @@ $background-rgba: rgb(2, 0, 36)
       justify-content: space-between
 
       @media screen and (max-width: 540px)
-        padding: 15px 10px
-
-
+        padding: 5px 10px
 
       & img
         opacity: 0.75
         cursor: pointer
+
+        @media screen and (max-width: 540px)
+          width: 24px
+          height: 24px
+
+          background-color: rgba(158, 54, 111, 0.4)
+          border-radius: 100%
+          box-sizing: border-box
+          padding: 2px
 
 
       .nav__events-container
@@ -173,8 +176,7 @@ $background-rgba: rgb(2, 0, 36)
       flex: 1
 
       @media screen and (max-width: 540px)
-        display: block
-
+        flex-direction: column
 
 
       .content__person-container
@@ -183,8 +185,8 @@ $background-rgba: rgb(2, 0, 36)
         display: flex
         flex-direction: column
         align-items: center
-        background: rgb(193,60,107)
-        background: linear-gradient(225deg, rgba(193,60,107,1) 0%, rgba(111,45,117,1) 100%)
+        background: rgb(193, 60, 107)
+        background: linear-gradient(225deg, rgba(193, 60, 107, 1) 0%, rgba(111, 45, 117, 1) 100%)
         color: white
 
         .person-avatar
@@ -200,7 +202,8 @@ $background-rgba: rgb(2, 0, 36)
 
           @media screen and (max-width: 540px)
             margin-top: 0
-            border-radius: 0
+            border-radius: 10px
+            width: 100%
 
 
           .status
@@ -210,6 +213,10 @@ $background-rgba: rgb(2, 0, 36)
             border-radius: 100%
             right: 20px
             bottom: 5px
+
+            @media screen and (max-width: 540px)
+              right: 6px
+              bottom: -6px
 
           .online
             background-color: #29C851
@@ -237,7 +244,7 @@ $background-rgba: rgb(2, 0, 36)
             justify-content: center
             margin-bottom: 12px
 
-            &>img
+            & > img
               margin: 6px
               height: 18px
               width: 18px
@@ -250,7 +257,7 @@ $background-rgba: rgb(2, 0, 36)
 
 
           .stat__item
-            $border-color: rgba(255,255,255,0.3)
+            $border-color: rgba(255, 255, 255, 0.3)
             box-sizing: border-box
             padding: 25px 0
             border-top: 1px solid $border-color
@@ -259,7 +266,7 @@ $background-rgba: rgb(2, 0, 36)
             flex-direction: column
             flex: 1
 
-            &+.stat__item
+            & + .stat__item
               border-left: 1px solid $border-color
 
             .item__value
@@ -299,27 +306,28 @@ $background-rgba: rgb(2, 0, 36)
 
           @media screen and (max-width: 540px)
             text-align: justify
+
       .content__button-container
         display: none
 
-        &>.user-profile__button
+        & > .user-profile__button
           flex: 1
 
         @media screen and (max-width: 540px)
           display: flex
           justify-content: space-around
           align-items: center
-          border-top: 1px solid rgba(0,0,0,0.1)
+          border-top: 1px solid rgba(0, 0, 0, 0.1)
           background: white
           height: 60px
           padding: 0 30px
-
-
-
+          margin-top: auto
 
 
   .container__footer
     display: flex
+    flex-wrap: wrap
+    justify-content: center
 
     .footer__link-item
       display: flex
@@ -327,12 +335,7 @@ $background-rgba: rgb(2, 0, 36)
       font-weight: 500
       font-size: 12px
       cursor: pointer
+      margin: 0 10px
 
-      &>img
+      & > img
         margin-right: 4px
-
-      &+.footer__link-item
-        margin-left: 20px
-
-
-
