@@ -2,25 +2,7 @@
 $background-gradient: linear-gradient(45deg, rgba(2, 0, 36, 0.7) 0%, rgba(117, 46, 114, 0.7) 0%, rgba(196, 60, 110, 1) 100%)
 $background-rgba: rgb(2, 0, 36)
 
-.person-info__avatar
-  width: 130px
-  height: 130px
-  border-radius: 100%
-  background-repeat: no-repeat
-  background-position: center
-  background-size: cover
-  position: relative
 
-  .status
-    position: absolute
-    width: 16px
-    height: 16px
-    border-radius: 100%
-    right: 20px
-    bottom: 5px
-
-  .online
-    background-color: #29C851
 
 .container
   background: $background-rgba
@@ -36,6 +18,11 @@ $background-rgba: rgb(2, 0, 36)
   display: flex
   flex-direction: column
   align-items: center
+  justify-content: space-between
+
+  @media screen and (max-width: 720px)
+    padding: 30px 4px
+
 
   .title
     color: white
@@ -46,12 +33,16 @@ $background-rgba: rgb(2, 0, 36)
     display: flex
     justify-content: space-between
     width: 100%
-    max-width: 1200px
+    max-width: 1900px
+    font-size: 22px
+
+    @media screen and (max-width: 540px)
+      font-size: 16px
+
 
     .header__profile-stat
 
       .profile-stat__title
-        font-size: 22px
         font-weight: 600
 
       .profile-stat__value
@@ -59,48 +50,109 @@ $background-rgba: rgb(2, 0, 36)
         margin-top: 5px
         font-weight: 300
 
+        @media screen and (max-width: 540px)
+          font-size: 14px
+
     .header__location
-      font-size: 22px
       font-weight: 400
 
 
   .user-profile
+    position: relative
     display: flex
     flex-direction: column
     max-width: 1200px
     min-height: 450px
+    flex: 1
     width: 100%
     border-radius: 10px
     overflow: hidden
+    -webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,0.5)
+    -moz-box-shadow: 0 0 20px 0 rgba(0,0,0,0.5)
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.5)
+    margin: 20px
 
-
-    .user-profile__header
-      background-image: url("http://www.acupofmusicplease.com/wp-content/uploads/2018/04/kelly-sikkema-216021-unsplash-1024x678.jpg")
-      background-position: center
-      background-repeat: no-repeat
-      background-size: cover
+    .user-profile__banner
       min-height: 180px
-      filter: brightness(80%)
       box-sizing: border-box
       padding: 15px 25px
+      display: flex
+      justify-content: flex-end
+      align-items: flex-end
+      position: relative
+
+      @media screen and (max-width: 540px)
+        display: none
 
 
-      &:before
-        content: ''
+
+      .banner_background
+        background-image: url("http://www.acupofmusicplease.com/wp-content/uploads/2018/04/kelly-sikkema-216021-unsplash-1024x678.jpg")
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
         position: absolute
         top: 0
         left: 0
         right: 0
         bottom: 0
-        background-color: rgba(0,0,0,0.2)
-        z-index: -1
 
-      .header__nav
-        display: flex
-        justify-content: space-between
+        &:before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          background-color: rgba(0,0,0,0.3)
 
-        //& img
-        //  opacity: 0.75
+
+
+    .user-profile__button
+      overflow: hidden
+      min-width: 100px
+      height: 28px
+      border-radius: 14px
+      box-sizing: border-box
+      padding: 0 7px
+      display: flex
+      align-items: center
+      justify-content: center
+      background: rgb(193,60,107)
+      background: linear-gradient(225deg, rgba(193,60,107,1) 0%, rgba(111,45,117,1) 100%)
+      color: white
+      font-size: 12px
+      font-weight: 600
+      z-index: 1
+      cursor: pointer
+
+      &+.user-profile__button
+        margin-left: 10px
+
+      &>img
+        height: 16px
+        width: 16px
+        margin-right: 3px
+
+
+    .header
+      width: 100%
+      box-sizing: border-box
+      padding: 15px 25px
+      position: absolute
+      z-index: 1000
+      display: flex
+      justify-content: space-between
+
+      @media screen and (max-width: 540px)
+        padding: 15px 10px
+
+
+
+      & img
+        opacity: 0.75
+        cursor: pointer
+
 
       .nav__events-container
         .events-container__bell
@@ -118,52 +170,169 @@ $background-rgba: rgb(2, 0, 36)
 
     .user-profile__content
       display: flex
+      flex: 1
+
+      @media screen and (max-width: 540px)
+        display: block
+
+
 
       .content__person-container
         min-width: 235px
         flex: 1
+        display: flex
+        flex-direction: column
+        align-items: center
         background: rgb(193,60,107)
         background: linear-gradient(225deg, rgba(193,60,107,1) 0%, rgba(111,45,117,1) 100%)
         color: white
 
-        .container__person-info
-          display: flex
-          flex: 1
-          flex-direction: column
-          align-items: center
+        .person-avatar
+          width: 130px
+          height: 130px
+          border-radius: 100%
+          background-repeat: no-repeat
+          background-position: center
+          background-size: cover
+          position: relative
           margin-top: -65px
+          margin-bottom: 25px
+
+          @media screen and (max-width: 540px)
+            margin-top: 0
+            border-radius: 0
+
+
+          .status
+            position: absolute
+            width: 16px
+            height: 16px
+            border-radius: 100%
+            right: 20px
+            bottom: 5px
+
+          .online
+            background-color: #29C851
+
+        .person-info
+          padding: 0 20px
+          text-align: center
 
           .person-info__full-name
             font-size: 16px
             font-weight: 600
             word-wrap: break-word
             text-align: center
+            line-height: 20px
+            margin-bottom: 12px
 
-          .person-info__stat
-            margin-top: auto
+          .person-info__post
+            word-wrap: break-word
+            text-align: center
+            line-height: 20px
+            margin-bottom: 12px
+
+          .person-info__social-networks
             display: flex
+            justify-content: center
+            margin-bottom: 12px
 
-            .stat__item
-              box-sizing: border-box
-              padding:
-              border-top: 1px solid white
-              display: flex
-              align-items: center
-              flex-direction: column
-              flex: 1
+            &>img
+              margin: 6px
+              height: 18px
+              width: 18px
+              cursor: pointer
+
+        .person-stat
+          margin-top: auto
+          display: flex
+          width: 100%
+
+
+          .stat__item
+            $border-color: rgba(255,255,255,0.3)
+            box-sizing: border-box
+            padding: 25px 0
+            border-top: 1px solid $border-color
+            display: flex
+            align-items: center
+            flex-direction: column
+            flex: 1
+
+            &+.stat__item
+              border-left: 1px solid $border-color
+
+            .item__value
+              font-weight: 600
+              font-size: 14px
+              margin-bottom: 5px
+
+            .item__value-name
+              font-size: 12px
+              font-weight: 500
 
       .content__about
         flex: 2
         box-sizing: border-box
         padding: 25px 30px
         background-color: white
+        text-overflow: ellipsis
+        overflow: hidden
+
+        @media screen and (max-width: 540px)
+          padding: 15px 10px
+
 
         .about__title
           text-transform: uppercase
           color: #B03E6F
           font-size: 22px
+          font-weight: 500
+          @media screen and (max-width: 540px)
+            text-align: center
 
         .about__content
           color: black
           margin-top: 15px
+          line-height: 18px
+          font-size: 14px
+
+          @media screen and (max-width: 540px)
+            text-align: justify
+      .content__button-container
+        display: none
+
+        &>.user-profile__button
+          flex: 1
+
+        @media screen and (max-width: 540px)
+          display: flex
+          justify-content: space-around
+          align-items: center
+          border-top: 1px solid rgba(0,0,0,0.1)
+          background: white
+          height: 60px
+          padding: 0 30px
+
+
+
+
+
+  .container__footer
+    display: flex
+
+    .footer__link-item
+      display: flex
+      align-items: center
+      font-weight: 500
+      font-size: 12px
+      cursor: pointer
+
+      &>img
+        margin-right: 4px
+
+      &+.footer__link-item
+        margin-left: 20px
+
+
 
